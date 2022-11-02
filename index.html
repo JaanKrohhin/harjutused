@@ -1,16 +1,29 @@
 <!DOCTYPE html>
-<html>
-
-<head>
-	<title>Parcel Sandbox</title>
-	<meta charset="UTF-8" />
-</head>
-
-<body>
-	<div id="app"></div>
-
-	<script src="src/index.js">
-	</script>
-</body>
-
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Static Template</title>
+  </head>
+  <body>
+    <!--создаем кнопку-->
+    <button type="button" onclick="loadDoc()">Request bacon</button>
+    <p id="demo"></p>
+ 
+    <script>
+      //создается функция для вывода информации из другого сайта
+      function loadDoc() {
+        const xhttp = new XMLHttpRequest();
+        //загружает xhttp
+        xhttp.onload = function () {
+          document.getElementById("demo").innerHTML = this.responseText;
+        };
+        // открывет ссылку данного сайта на html
+        xhttp.open("GET", "https://baconipsum.com/api/?type=all-meat");
+        //xhttp отправляет на html страницу
+        xhttp.send();
+      }
+    </script>
+  </body>
 </html>
